@@ -44,9 +44,8 @@ services:
     image: nginx:1.29.2-alpine3.22
     <<: [*network, *deploy-on-front]
     ports:
-      - 80:80
-      - 8080:8080
-      - 443:443
+      - 8080:80
+      - 8443:443
     environment:
       TZ: Asia/Tehran
     configs:
@@ -75,4 +74,4 @@ secrets:
 configs:
   nginx-config:
     file: ./configs/nginx.conf
-    name: nginx-config_2025-10-31-v4
+    name: nginx-config_2025-10-31-v6
