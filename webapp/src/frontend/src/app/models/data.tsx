@@ -3,19 +3,10 @@ import LinkedInIcon from '../shared/components/icons/LinkedInIcon';
 import aboutBackgroundImage from '../statics/images/header-background.webp';
 import aboutImage from '../statics/images/header.jpg';
 import { About, PortfolioItem, ResumeHistoryItem, SkillGroup, SkillGroupV2, Social } from './interfaces';
-import { Building, Calendar, Download, Mail, MapPin, Phone } from "lucide-react";
+import { AppWindow, Calendar, Download, Mail, MapPin, Phone } from "lucide-react";
 
-import porfolioImage1 from '../statics/images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../statics/images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../statics/images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../statics/images/portfolio/portfolio-4.jpg';
-import porfolioImage5 from '../statics/images/portfolio/portfolio-5.jpg';
-import porfolioImage6 from '../statics/images/portfolio/portfolio-6.jpg';
-import porfolioImage7 from '../statics/images/portfolio/portfolio-7.jpg';
-import porfolioImage8 from '../statics/images/portfolio/portfolio-8.jpg';
-import porfolioImage9 from '../statics/images/portfolio/portfolio-9.jpg';
-import porfolioImage10 from '../statics/images/portfolio/portfolio-10.jpg';
-import porfolioImage11 from '../statics/images/portfolio/portfolio-11.jpg';
+import githubImage from '../statics/images/portfolio/github.jpg';
+// import airflowImage from '../statics/images/portfolio/airflow.png';
 
 export const SectionId = {
   About: 'About',
@@ -59,7 +50,7 @@ export const AboutData: About = {
   aboutItems: [
     { label: 'Location', text: 'Tehran, Iran', Icon: MapPin },
     { label: 'Age', text: '25', Icon: Calendar },
-    { label: 'Employment', text: 'Digikala, inc.', Icon: Building },
+    { label: 'Website', text: 'meysamaghili.ir', Icon: AppWindow },
     { label: 'Email', text: 'meysamaghili533@gmail.com', Icon: Mail },
     { label: 'Phone', text: '+98 9332655928', Icon: Phone },
     { label: 'LinkedIn', text: 'www.linkedin.com/in/meysam-aghili', Icon: Mail },
@@ -74,84 +65,180 @@ export const experiences: ResumeHistoryItem[] = [
     description: (
       <ul className="text-gray-300 list-disc">
         <li className='ml-6 mb-3'>
-          <p>
-            <span className='font-bold'>Kafka & Data Integration Engineering: </span>
-            Implemented and maintained a scalable Standardized and version-controlled Kafka cluster to enable real-time
-            data ingestion and processing across multiple environments and gather, transform, and load high-volume data
-            from diverse sources (MySQL, PostgreSQL, and others) into data lakes and data warehouses.
-            Managed Kafka upgrades and production maintenance, keeping clusters stable, secure, and aligned with the latest versions.
-            Integrated Prometheus and Grafana for proactive monitoring and alerting on cluster health and connector activity,
-            improving system reliability and observability.
-          </p>
+        
+            <span className='font-bold  mb-1'>Kafka & Data Integration Engineering: </span>
+            <ul className="text-gray-300 list-disc">
+              <li className='ml-6 mb-1'>
+                <p>
+                  Designed, implemented, and maintained a scalable, version-controlled Kafka cluster supporting real-time data ingestion and processing across multiple environments.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Developed and managed high-throughput data pipelines integrating MySQL, PostgreSQL, and other sources into data lakes and data warehouses.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Performed Kafka upgrades, production maintenance, and version alignment to ensure system stability, security, and performance.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Integrated Prometheus and Grafana for proactive cluster monitoring and alerting, improving system reliability and observability.
+                </p>
+              </li>
+            </ul>
+    
         </li>
         <li className='ml-6 mb-3'>
-          <p>
-            <span className='font-bold'>.NET Application & API Development: </span>
-            Designed and developed multiple .NET applications and APIs using ASP.NET Web API and Blazor,
-            applying clean architecture principles and enterprise-grade design patterns. Implemented structured logging,
-            database management with Entity Framework (EF), and followed best practices. Containerized .NET services with
-            Docker and implemented unit and integration tests to ensure reliability and maintainability. Created and published a
-            reusable utilities library on NuGet, improving code reusability and standardization across projects.
-          </p>
+        
+            <span className='font-bold mb-1'>.NET Application & API Development: </span>
+            <ul className="text-gray-300 list-disc">
+              <li className='ml-6 mb-1'>
+                <p>
+                  Designed and built .NET applications and REST APIs using ASP.NET Web API and Blazor, applying clean architecture principles and enterprise design patterns.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Implemented structured logging, data persistence with Entity Framework (EF), and containerization with Docker.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Developed and published a reusable utilities library on NuGet, enhancing code reusability and project standardization.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Built comprehensive unit and integration test suites to ensure high reliability and maintainability.
+                </p>
+              </li>
+            </ul>
+      
         </li>
         <li className='ml-6 mb-3'>
-          <p>
-            <span className='font-bold'>Data Catalog & Governance Platform: </span>
-            Designed and developed a full-stack Data Catalog web application to centralize and visualize the company’s data structures,
-            storage locations, metadata, and inter-table relationships. Implemented capabilities including data classification
-            and tagging to support data access management and compliance requirements. Built robust authentication and authorization
-            layers with LDAP integration, role-based access control (RBAC), and attribute-based policies for secure user management.
-            Modeled and stored metadata in PostgreSQL, leveraging PostgreSQL row-level security. Engineered the backend
-            with .NET and the frontend with React. Containerized the entire application stack for portable, consistent,
-            and production-ready deployments.
-          </p>
+    
+            <span className='font-bold mb-1'>Data Catalog & Governance Platform: </span>
+            <ul className="text-gray-300 list-disc">
+              <li className='ml-6 mb-1'>
+                <p>
+                  Architected and developed a full-stack Data Catalog application to centralize metadata, visualize data structures, and manage data governance.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Built data classification, tagging, and access management features supporting compliance and security requirements.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Implemented LDAP integration, role-based (RBAC) and attribute-based access control, and PostgreSQL row-level security for fine-grained permissions.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Engineered backend services in .NET, frontend in React, and containerized the stack for production-ready deployments.
+                </p>
+              </li>
+            </ul>
+     
         </li>
         <li className='ml-6 mb-3'>
-          <p>
-            <span className='font-bold'>Airflow Infrastructure & Workflow Orchestration: </span>
-            Architected and maintained a production-grade Apache Airflow cluster to provide a unified,
-            scalable platform for BI developers and data analysts to deploy and manage data workflows.
-            Utilized Docker Operator to isolate project dependencies. Developed CI/CD pipelines and configuration
-            templates and custom DAG library to automate deployment of Airflow projects, improving onboarding speed
-            and deployment consistency.
-          </p>
+     
+            <span className='font-bold mb-1'>Airflow Infrastructure & Workflow Orchestration: </span>
+            <ul className="text-gray-300 list-disc">
+              <li className='ml-6 mb-1'>
+                <p>
+                  Designed and maintained a production-grade Apache Airflow cluster for orchestrating BI and data workflows.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Utilized Docker Operator for dependency isolation and created CI/CD pipelines and custom DAG templates to streamline project deployment.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Automated Airflow project onboarding and deployment, improving scalability and consistency across teams.
+                </p>
+              </li>
+            </ul>
+    
         </li>
         <li className='ml-6 mb-3'>
-          <p>
-            <span className='font-bold'>Monitoring, Observability & Alerting Infrastructure: </span>
-            Implemented a company-wide monitoring and alerting system using Prometheus and Grafana to
-            observe all projects and infrastructure components in real time. Developed custom exporters
-            to collect detailed performance metrics and resource utilization data. Integrated monitoring
-            for critical data systems including Airflow DAG executions, Celery workers, Kafka connectors,
-            and application services. Built a production-grade Alerting Middleware API (in .NET) to centralize
-            notifications for Slack and Microsoft Teams, supporting dynamic webhook management, message templating.
-          </p>
+    
+            <span className='font-bold mb-1'>Monitoring, Observability & Alerting Infrastructure: </span>
+            <ul className="text-gray-300 list-disc">
+              <li className='ml-6 mb-1'>
+                <p>
+                  Built an organization-wide monitoring and alerting system with Prometheus and Grafana to track performance of all projects and infrastructure components.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Developed custom exporters for detailed metrics collection from Airflow, Kafka, and application services.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Created a production-grade Alerting Middleware API (.NET) for centralized notification delivery to Slack and Microsoft Teams, supporting dynamic webhooks and templated messages.
+                </p>
+              </li>
+            </ul>
+       
         </li>
         <li className='ml-6 mb-3'>
-          <p>
-            <span className='font-bold'>Version Control & CI/CD Automation: </span>
-            Utilized advanced Git workflows (branching strategies, merge requests, and release management)
-            to maintain clean, traceable development cycles. Designed and implemented CI/CD pipelines using GitLab CI,
-            automating build, test, and deployment processes for multiple data and application projects.
-          </p>
+       
+            <span className='font-bold mb-1'>Version Control & CI/CD Automation: </span>
+            <ul className="text-gray-300 list-disc">
+              <li className='ml-6 mb-1'>
+                <p>
+                  Implemented advanced Git workflows (branching, merge requests, release management) to maintain structured and traceable development cycles.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Built automated CI/CD pipelines using GitLab CI for building, testing, and deploying data and application projects.
+                </p>
+              </li>
+            </ul>
+      
         </li>
         <li className='ml-6 mb-3'>
-          <p>
-            <span className='font-bold'>Containerization & Orchestration: </span>
-            Containerized most applications and services across the organization to ensure environment
-            consistency, simplified deployment, and scalability. Utilized Docker Swarm as an orchestration
-            layer to manage multi-container applications, automate service deployment, and optimize resource
-            usage across nodes.
-          </p>
+    
+            <span className='font-bold mb-1'>Containerization & Orchestration: </span>
+            <ul className="text-gray-300 list-disc">
+              <li className='ml-6 mb-1'>
+                <p>
+                  Containerized key applications and services across the organization using Docker for consistency, portability, and scalability.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Leveraged Docker Swarm for orchestrating multi-container deployments and optimizing resource utilization.
+                </p>
+              </li>
+            </ul>
+   
         </li>
         <li className='ml-6 mb-3'>
-          <p>
-            <span className='font-bold'>Database Design & Management: </span>
-            Designed, implemented, and optimized various databases including MySQL, PostgreSQL, SQL Server,
-            MongoDB, ClickHouse, and Redis to support diverse analytical, transactional, and caching use cases.
-            Experienced in data modeling, indexing, query optimization, replication, and backup strategies to
-            ensure high performance, reliability, and scalability across systems.
-          </p>
+      
+            <span className='font-bold mb-1'>Database Design & Management: </span>
+            <ul className="text-gray-300 list-disc">
+              <li className='ml-6 mb-1'>
+                <p>
+                  Designed, implemented, and optimized databases including PostgreSQL, SQL Server, MongoDB, ClickHouse, and Redis.
+                </p>
+              </li>
+              <li className='ml-6 mb-1'>
+                <p>
+                  Skilled in data modeling, indexing, query optimization, replication, and backup strategies to ensure performance, scalability, and reliability.
+                </p>
+              </li>
+            </ul>
+     
         </li>
       </ul>
     )
@@ -285,69 +372,15 @@ export const skillItemsV2: SkillGroupV2 = {
 
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Project title 1',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage1,
+    title: 'Projects Code',
+    description: 'Projects Code Repo.',
+    url: 'https://github.com/meysam-aghili/resume',
+    image: githubImage,
   },
-  {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage2,
-  },
-  {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage3,
-  },
-  {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage4,
-  },
-  {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage5,
-  },
-  {
-    title: 'Project title 6',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage6,
-  },
-  {
-    title: 'Project title 7',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage7,
-  },
-  {
-    title: 'Project title 8',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage8,
-  },
-  {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage9,
-  },
-  {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage10,
-  },
-  {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage11,
-  },
+  // {
+  //   title: 'Airflow',
+  //   description: 'Data workflows tool.',
+  //   url: '',
+  //   image: airflowImage,
+  // },
 ];

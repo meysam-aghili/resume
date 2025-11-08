@@ -46,22 +46,18 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
     ports:
-      - 10001:9000
-    <<: [*network, *deploy-on-front]
+      - 9000:9000
+    <<: [*network, *deploy-on-host-02]
 
   registry:
     image: registry:3.0.0
     hostname: registry
     ports:
-      - 10000:443
+      - 5000:5000
     volumes:
       - registry_data:/var/lib/registry
-      - ./configs/certs/domain.key:/run/secrets/registry_ssl_key
-      - ./configs/certs/domain.crt:/run/secrets/registry_ssl_crt
     environment:
-      REGISTRY_HTTP_ADDR: 0.0.0.0:443
-      REGISTRY_HTTP_TLS_CERTIFICATE: /run/secrets/registry_ssl_crt
-      REGISTRY_HTTP_TLS_KEY: /run/secrets/registry_ssl_key
+      REGISTRY_HTTP_ADDR: 0.0.0.0:5000
     <<: [*network, *deploy-on-front]
 
 volumes:

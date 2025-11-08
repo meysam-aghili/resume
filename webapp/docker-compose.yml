@@ -41,12 +41,13 @@ x-network: &network
 
 services:
   frontend:
-    image: ${CI_REGISTRY_IMAGE}/frontend:${FRONTEND_VERSION}
+    image: ${LOCAL_REGISTRY}/frontend:${FRONTEND_VERSION}
     <<: [*network, *deploy-on-front]
     ports:
-      - 10002:3000
+      - 3000:3000
     environment:
       TZ: Asia/Tehran
     # healthcheck:
     #   test: ["CMD", "curl", "-f", "http://localhost:3000"]
     #   <<: *healthcheck-config
+

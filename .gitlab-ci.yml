@@ -1,64 +1,68 @@
 stages:
+  - pre_deploy
   - build
   - deploy
 
 before_script:
   - source .env
-  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+  # - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
 
 ########################### Frontend
 build webapp frontend:
   stage: build
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
-      changes:
-        - webapp/**
+  only:
+    - main
   script:
     - cd webapp
     - source .env
-    - docker build -t "${CI_REGISTRY_IMAGE}/frontend:${FRONTEND_VERSION}" -f src/frontend/Dockerfile ./src/frontend
-    - docker push "${CI_REGISTRY_IMAGE}/frontend:${FRONTEND_VERSION}"
+    - docker build -t "${LOCAL_REGISTRY}/frontend:${FRONTEND_VERSION}" -f src/frontend/Dockerfile ./src/frontend
+    - docker push "${LOCAL_REGISTRY}/frontend:${FRONTEND_VERSION}"
 
 deploy webapp:
   stage: deploy
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
-      changes:
-        - webapp/**
+  only:
+    - main
   script:
     - ./parse_compose_envs.sh webapp/docker-compose.yml .env webapp/.env
     - docker stack deploy -c webapp/docker-compose.prod.yml --with-registry-auth webapp
 
 ########################### Proxy
 deploy proxy:
-  stage: deploy
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
-      changes:
-        - proxy/**
+  stage: pre_deploy
+  only:
+    - main
   script:
     - ./parse_compose_envs.sh proxy/docker-compose.yml .env
     - docker stack deploy -c proxy/docker-compose.prod.yml --with-registry-auth proxy
 
-########################### Airflow
-build airflow:
-  stage: build
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
-      changes:
-        - airflow/**
+########################### Docker
+deploy docker:
+  stage: pre_deploy
+  only:
+    - main
   script:
-    - cd airflow
-    - source .env
-    - docker build -t "${CI_REGISTRY_IMAGE}/airflow:${VERSION}" -f Dockerfile .
-    - docker push "${CI_REGISTRY_IMAGE}/airflow:${VERSION}"
+    - ./parse_compose_envs.sh docker/docker-compose.yml .env
+    - docker stack deploy -c docker/docker-compose.prod.yml --with-registry-auth docker
 
-deploy airflow:
-  stage: deploy
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
-      changes:
-        - airflow/**
-  script:
-    - ./parse_compose_envs.sh airflow/docker-compose.yml .env airflow/.env
-    - docker stack deploy -c airflow/docker-compose.prod.yml --with-registry-auth airflow
+########################### Airflow
+# build airflow:
+#   stage: build
+#   rules:
+#     - if: '$CI_COMMIT_BRANCH == "main"'
+#       changes:
+#         - airflow/**
+#   script:
+#     - cd airflow
+#     - source .env
+#     - docker build -t "${LOCAL_REGISTRY}/airflow:${VERSION}" -f Dockerfile .
+#     - docker push "${LOCAL_REGISTRY}/airflow:${VERSION}"
+
+# deploy airflow:
+#   stage: deploy
+#   rules:
+#     - if: '$CI_COMMIT_BRANCH == "main"'
+#       changes:
+#         - airflow/**
+#   script:
+#     - ./parse_compose_envs.sh airflow/docker-compose.yml .env airflow/.env
+#     - docker stack deploy -c airflow/docker-compose.prod.yml --with-registry-auth airflow

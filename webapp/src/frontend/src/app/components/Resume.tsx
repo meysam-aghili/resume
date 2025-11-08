@@ -140,7 +140,7 @@ const ResumeHistory: FC<ResumeHistoryProps> = memo(({ title, items }) => {
               </span>
             </div>
             <div className="prose prose-sm flex flex-col pt-10 prose-ul:list-none">
-              <h2 className="font-bold text-white mb-2">{item.title}</h2>
+              <h2 className="font-bold text-orange-500 mb-2">{item.title}</h2>
               {item.description}
             </div>
           </li>
