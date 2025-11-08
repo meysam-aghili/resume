@@ -41,7 +41,7 @@ export const AboutData: About = {
   ),
   actions: [
     {
-      href: '/statics/assets/a.pdf',
+      href: '/statics/assets/MeysamAghiliResume.pdf',
       text: 'Resume',
       primary: true,
       Icon: Download,
